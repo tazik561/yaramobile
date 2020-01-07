@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="batman"
+            type="com.yaramobile.batman.database.BatmanEntity" />
+
+        <variable
+            name="clickListener"
+            type="com.yaramobile.batman.home.BatmanRecyclerAdapter.BatmanClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_id"
+            android:layout_width="170dp"
+            android:layout_height="280dp"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{(v) -> clickListener.onItemClick(batman)}"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/book_img_id"
+                    batmanImage="@{batman}"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:background="#2d2d2d"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/batman" />
+
+                <TextView
+                    android:id="@+id/book_title_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Book Title"
+                    android:textColor="#2d2d2d"
+                    android:textSize="13sp"
+                    app:batmanTitle="@{batman}" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

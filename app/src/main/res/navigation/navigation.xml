@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/batmanFragment">
+
+    <fragment
+        android:id="@+id/batmanFragment"
+        android:name="com.yaramobile.batman.home.BatmanFragment"
+        android:label="fragment_batman"
+        tools:layout="@layout/fragment_batman" >
+        <action
+            android:id="@+id/action_batmanFragment_to_detailBatmanFragment"
+            app:destination="@+id/detailBatmanFragment"
+            app:popUpTo="@+id/batmanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailBatmanFragment"
+        android:name="com.yaramobile.batman.detail.DetailBatmanFragment"
+        android:label="fragment_detail_batman"
+        tools:layout="@layout/fragment_detail_batman" >
+        <argument
+            android:name="imdbID"
+            app:argType="string" />
+    </fragment>
+</navigation>
